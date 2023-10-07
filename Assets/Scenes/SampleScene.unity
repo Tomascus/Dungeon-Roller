@@ -387,6 +387,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!4 &620018751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6911679303885928443, guid: 98818edbae221d7438c099cf01c02c0e, type: 3}
+  m_PrefabInstance: {fileID: 3139172811175890644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &620018752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620018746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec9b1bb49840db4b960b57c980f6f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 620018751}
+  rotationSpeed: 10
 --- !u!1001 &3139172811175890644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -465,4 +484,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8989117854312536297, guid: 98818edbae221d7438c099cf01c02c0e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 620018747}
+    - targetCorrespondingSourceObject: {fileID: 8989117854312536297, guid: 98818edbae221d7438c099cf01c02c0e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 620018752}
   m_SourcePrefab: {fileID: 100100000, guid: 98818edbae221d7438c099cf01c02c0e, type: 3}
