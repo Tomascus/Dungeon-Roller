@@ -2,29 +2,29 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Adjust this value to control the maximum movement speed.
-    public float acceleration = 10f; // Adjust this value to control the acceleration rate.
+    public float speed = 5f; //Controls for adjusting the move speed inside the game
+    public float acceleration = 10f; //Controls for adjusting the acceleration for smoother movement inside the game
 
-    private Rigidbody2D rb;
-    private Vector2 targetVelocity;
+    private Rigidbody2D body;
+    private Vector2 targetVelocity; 
     
-    void Start()
+    private void Awake() //Call when the scene is first initialized 
     {
-        rb = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
         targetVelocity = Vector2.zero;
     }
 
     void Update()
     {
-        // Get input for horizontal and vertical movement.
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        //Getting inputs for horizontal and vertical movement
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
 
-        // Calculate the target velocity based on input.
-        Vector2 inputVelocity = new Vector2(horizontalInput, verticalInput) * moveSpeed;
+        //Creating input velocity calculation for basic movement and then inputing it for final targetVelocity which adds acceleration calculation
+        Vector2 inputVelocity = new Vector2(moveX, moveY) * speed;
         targetVelocity = Vector2.Lerp(targetVelocity, inputVelocity, Time.deltaTime * acceleration);
 
-        // Apply the smoothed movement to the Rigidbody2D.
-        rb.velocity = targetVelocity;
+        //Applying smoother movement with acceleration to a rigidbody
+        body.velocity = targetVelocity;
     }
 }
