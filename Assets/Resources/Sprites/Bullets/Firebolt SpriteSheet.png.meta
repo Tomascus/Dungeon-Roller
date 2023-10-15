@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 95497dce26cfb1644bd0f49e46a127e5
+guid: 85af79ea2ce301641b46f87841989955
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2560191268572409061
-    second: Death-Sheet_0
+      213: -8714644768040406816
+    second: Firebolt SpriteSheet1_0
   - first:
-      213: -1264829189228096833
-    second: Death-Sheet_1
+      213: -5522270145426319853
+    second: Firebolt SpriteSheet1_1
   - first:
-      213: -295645148974806884
-    second: Death-Sheet_2
+      213: -1150598905970371798
+    second: Firebolt SpriteSheet1_2
   - first:
-      213: -5445535467145450107
-    second: Death-Sheet_3
+      213: -2623946432826957831
+    second: Firebolt SpriteSheet1_3
   - first:
-      213: -8093336952383072624
-    second: Death-Sheet_4
-  - first:
-      213: -2312478708456275354
-    second: Death-Sheet_5
+      213: 1020010548233777371
+    second: Firebolt SpriteSheet1_4
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -66,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death-Sheet_0
+      name: Firebolt SpriteSheet1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 64
+        width: 49
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5eca050f460a78320800000000000000
-      internalID: 2560191268572409061
+      spriteID: 0e03c3171cc5f0780800000000000000
+      internalID: -8714644768040406816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death-Sheet_1
+      name: Firebolt SpriteSheet1_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 49
         y: 0
-        width: 128
-        height: 64
+        width: 49
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb29382cd8c627ee0800000000000000
-      internalID: -1264829189228096833
+      spriteID: 3169e1c9f84fc53b0800000000000000
+      internalID: -5522270145426319853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death-Sheet_2
+      name: Firebolt SpriteSheet1_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 98
         y: 0
-        width: 128
-        height: 64
+        width: 49
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c980acbad48a5ebf0800000000000000
-      internalID: -295645148974806884
+      spriteID: a23dea224604800f0800000000000000
+      internalID: -1150598905970371798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death-Sheet_3
+      name: Firebolt SpriteSheet1_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 147
         y: 0
-        width: 128
-        height: 64
+        width: 49
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,50 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58d210528529d64b0800000000000000
-      internalID: -5445535467145450107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0961aa11ce0beaf80800000000000000
-      internalID: -8093336952383072624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6624fcfdddc68efd0800000000000000
-      internalID: -2312478708456275354
+      spriteID: 9ff12b12f9ed59bd0800000000000000
+      internalID: -2623946432826957831
       vertices: []
       indices: 
       edges: []
@@ -241,7 +196,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b004e95d9eec33f45b96fa5c39fe50a8
+    spriteID: cf981400fa7b3c646810e9a2ac57dca2
     internalID: 0
     vertices: []
     indices: 
@@ -249,12 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Death-Sheet_0: 2560191268572409061
-      Death-Sheet_1: -1264829189228096833
-      Death-Sheet_2: -295645148974806884
-      Death-Sheet_3: -5445535467145450107
-      Death-Sheet_4: -8093336952383072624
-      Death-Sheet_5: -2312478708456275354
+      Firebolt SpriteSheet1_0: -8714644768040406816
+      Firebolt SpriteSheet1_1: -5522270145426319853
+      Firebolt SpriteSheet1_2: -1150598905970371798
+      Firebolt SpriteSheet1_3: -2623946432826957831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

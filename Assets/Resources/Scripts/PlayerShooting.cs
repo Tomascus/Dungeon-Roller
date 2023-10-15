@@ -8,30 +8,34 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        // Check for mouse input (e.g., left mouse button click).
+        //Check for mouse input 
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            FireBullet();
         }
     }
 
-    void Shoot()
-    {
-        // Calculate the direction from the player to the mouse cursor.
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 fireDirection = (mousePosition - (Vector2)firePoint.position).normalized;
+    void FireBullet()
+{
+   
+    Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Create a bullet instance at the fire point.
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+    
+    Vector3 aimDirection = (mousePosition - firePoint.position).normalized;
 
-        // Activate the bullet GameObject.
-        bullet.SetActive(true);
+    
+    float angle = Mathf.Atan2(aimDirection.y, aimDirection.x);
 
-        // Get the bullet's Rigidbody2D component and set its velocity.
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = fireDirection * bulletSpeed;
+    
+    GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg));
 
-        // Destroy the bullet after a certain time (e.g., 2 seconds).
-        Destroy(bullet, 2f);
-    }
+    //THIS COULD BE CHANGED, basic solution for now
+    bullet.SetActive(true);
+
+    
+    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+    rb.velocity = aimDirection * bulletSpeed;
+
+    Destroy(bullet, 2f);
+}
 }
