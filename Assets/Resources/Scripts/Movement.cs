@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Followed tutorial: https://www.youtube.com/watch?v=hkaysu1Z-N8&t=1s&ab_channel=Brackeys
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        
     }
 
     //From school class

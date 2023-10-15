@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 95497dce26cfb1644bd0f49e46a127e5
+guid: f26368a817aa2e941bd2179d52adab0b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2560191268572409061
-    second: Death-Sheet_0
+      213: 5807353947552565585
+    second: Run-Sheet_0
   - first:
-      213: -1264829189228096833
-    second: Death-Sheet_1
+      213: -3540906705339577628
+    second: Run-Sheet_1
   - first:
-      213: -295645148974806884
-    second: Death-Sheet_2
+      213: -6677707856435898171
+    second: Run-Sheet_2
   - first:
-      213: -5445535467145450107
-    second: Death-Sheet_3
+      213: 4002533974423468926
+    second: Run-Sheet_3
   - first:
-      213: -8093336952383072624
-    second: Death-Sheet_4
+      213: 2964676863673857177
+    second: Run-Sheet_4
   - first:
-      213: -2312478708456275354
-    second: Death-Sheet_5
+      213: -4675099393403972317
+    second: Run-Sheet_5
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death-Sheet_0
+      name: Run-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -127,19 +127,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5eca050f460a78320800000000000000
-      internalID: 2560191268572409061
+      spriteID: 15945d885add79050800000000000000
+      internalID: 5807353947552565585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death-Sheet_1
+      name: Run-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea8f6dac1c2cdec0800000000000000
+      internalID: -3540906705339577628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 128
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -148,19 +169,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb29382cd8c627ee0800000000000000
-      internalID: -1264829189228096833
+      spriteID: 5c89d47a5140453a0800000000000000
+      internalID: -6677707856435898171
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death-Sheet_2
+      name: Run-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7b71f2817bdb8730800000000000000
+      internalID: 4002533974423468926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run-Sheet_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 128
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -169,19 +211,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c980acbad48a5ebf0800000000000000
-      internalID: -295645148974806884
+      spriteID: 994791566e5a42920800000000000000
+      internalID: 2964676863673857177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death-Sheet_3
+      name: Run-Sheet_5
       rect:
         serializedVersion: 2
-        x: 384
+        x: 320
         y: 0
-        width: 128
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -190,50 +232,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58d210528529d64b0800000000000000
-      internalID: -5445535467145450107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0961aa11ce0beaf80800000000000000
-      internalID: -8093336952383072624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6624fcfdddc68efd0800000000000000
-      internalID: -2312478708456275354
+      spriteID: 32513861fd5be1fb0800000000000000
+      internalID: -4675099393403972317
       vertices: []
       indices: 
       edges: []
@@ -241,7 +241,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 79c909b0a2c34cd489bd425da496b9e9
+    spriteID: 235354c1b6a1edc479dbb2daf7186dd8
     internalID: 0
     vertices: []
     indices: 
@@ -249,12 +249,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Death-Sheet_0: 2560191268572409061
-      Death-Sheet_1: -1264829189228096833
-      Death-Sheet_2: -295645148974806884
-      Death-Sheet_3: -5445535467145450107
-      Death-Sheet_4: -8093336952383072624
-      Death-Sheet_5: -2312478708456275354
+      Run-Sheet_0: 5807353947552565585
+      Run-Sheet_1: -3540906705339577628
+      Run-Sheet_2: -6677707856435898171
+      Run-Sheet_3: 4002533974423468926
+      Run-Sheet_4: 2964676863673857177
+      Run-Sheet_5: -4675099393403972317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

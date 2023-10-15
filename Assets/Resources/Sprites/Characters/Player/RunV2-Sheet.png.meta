@@ -23,12 +23,6 @@ TextureImporter:
   - first:
       213: -2289202227596102482
     second: RunV2-Sheet_6
-  - first:
-      213: 1788287662353609717
-    second: RunV2-Sheet_7
-  - first:
-      213: -39589856631721958
-    second: RunV2-Sheet_8
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -250,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 559110cc6d8cca8449ee2768f698284e
+    spriteID: 0f1c380c66bfc554ba06a5195ee0ffbb
     internalID: 0
     vertices: []
     indices: 
