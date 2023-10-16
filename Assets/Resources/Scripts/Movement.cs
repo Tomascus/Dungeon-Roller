@@ -34,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = targetVelocity;
 
         //Followed tutorial: https://www.youtube.com/watch?v=hkaysu1Z-N8&t=1s&ab_channel=Brackeys
-        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        animator.SetFloat("HorizontalSpeed", Mathf.Abs(horizontalInput));
+        animator.SetFloat("VerticalSpeed", Mathf.Abs(verticalInput));
         
     }
 
