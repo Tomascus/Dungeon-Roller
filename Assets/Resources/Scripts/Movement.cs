@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    public HealthBar healthBar;
+
+
     public float speed = 5f; //Controls for adjusting the move speed inside the game
     public float acceleration = 10f; //Controls for adjusting the acceleration for smoother movement inside the game
     public Animator animator;
@@ -16,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         targetVelocity = Vector2.zero;
+        HealthSystem healthSystem = new HealthSystem(100);
+
+        healthBar.Setup(healthSystem);
     }
 
     void Update()
