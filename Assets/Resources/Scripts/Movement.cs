@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -25,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
 
         //Creating input velocity calculation for basic movement and then inputing it for final targetVelocity which adds acceleration calculation
         Vector2 inputVelocity = new Vector2(horizontalInput, verticalInput) * speed;
