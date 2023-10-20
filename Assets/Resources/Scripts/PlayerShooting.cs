@@ -29,9 +29,6 @@ public class PlayerShooting : MonoBehaviour
     
     GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg));
 
-    //THIS COULD BE CHANGED, basic solution for now
-    bullet.SetActive(true);
-
     
     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
     rb.velocity = aimDirection * bulletSpeed;

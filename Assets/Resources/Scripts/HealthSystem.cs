@@ -3,34 +3,65 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class HealthSystem 
+public class HealthSystem : MonoBehaviour
 {
     //FOLLOWED TUTORIAL FROM: https://www.youtube.com/watch?v=0T5ei9jN63M&ab_channel=CodeMonkey
     public event EventHandler OnHealthChanged;
     private int health;
-    private int healthMax;
-    public HealthSystem(int healthMax) {
-        this.healthMax = healthMax;
-        health = healthMax;
+    public int maxHealth = 100;
+    public int damage = 10;
+     public HealthBar healthBar;
+    private int currentHealth;
+
+    //Set current health of player/enemy to max health at the start
+    void Awake()
+    {
+        currentHealth = maxHealth;
+        //healthBar.Setup(HealthSystem);
     }
 
-    public int GetHealth(){
-        return health;
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 
     public float GetHealthPercent() {
-        return health / healthMax;
+        return health / maxHealth;
     }
 
-    public void Damage(int damageAmount) {
-        health -=damageAmount;
-        if (health < 0) health = 0;
-        if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
+    //Adds method for lowering player/enemy health and death state
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            //Die(); //function for when entity dies
+        }
+
+        if (OnHealthChanged != null) 
+        {
+            OnHealthChanged(this, EventArgs.Empty);
+        }
+        
     }
 
-    public void Heal(int healAmount) {
-        health += healAmount;
-        if(health > healthMax) health = healthMax;
-        if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
+    //Method for heals from various sources
+    public void Heal(int heal)
+    {
+        currentHealth += heal;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        if (OnHealthChanged != null) 
+        {
+            OnHealthChanged(this, EventArgs.Empty); 
+        }
+       
     }
+    
+
+    
 }
