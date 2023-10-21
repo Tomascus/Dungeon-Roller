@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
         //Getting inputs for horizontal and vertical movement
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Creating input velocity calculation for basic movement and then inputing it for final targetVelocity which adds acceleration calculation
-        Vector2 inputVelocity = new Vector2(horizontalInput, verticalInput) * speed;
+        Vector2 inputVelocity = new Vector2(horizontalInput, verticalInput).normalized * speed;
         targetVelocity = Vector2.Lerp(targetVelocity, inputVelocity, Time.deltaTime * acceleration);
 
         //Applying smoother movement with acceleration to a rigidbody
