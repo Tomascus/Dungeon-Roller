@@ -51,9 +51,22 @@ public class PlayerController : MonoBehaviour
         //Applying smoother movement with acceleration to a rigidbody
         body.velocity = targetVelocity;
 
+
         //Followed tutorial: https://www.youtube.com/watch?v=hkaysu1Z-N8&t=1s&ab_channel=Brackeys
-        animator.SetFloat("HorizontalSpeed", Mathf.Abs(horizontalInput));
-        animator.SetFloat("VerticalSpeed", Mathf.Abs(verticalInput));
+        //Calculate the magnitude(strength) of input to determine speed
+        float inputMagnitude = new Vector2(horizontalInput, verticalInput).magnitude;
+
+        //Check if the magnitude is greater than 0.01 and if so, play animation
+        if (inputMagnitude > 0.01f)
+        {
+            //Set the "Speed" parameter in the Animator
+            animator.SetFloat("Speed", inputMagnitude);
+        }
+        else
+        {
+            //If the magnitude is 0 (Character is not moving), stop the animation
+            animator.SetFloat("Speed", 0);
+        }
         
     }
 
@@ -81,24 +94,16 @@ public class PlayerController : MonoBehaviour
 
     void Die()
 {
-    // Trigger the "Die" animation if you have such an animation in your Animator
     if (animator != null)
     {
+        //Trigger the "Die" animation
         animator.SetTrigger("Die");
     }
-    
-    // You can use an Animation event or a coroutine to delay the destruction
-    // For example, using a coroutine:
-    StartCoroutine(DestroyAfterAnimation());
 }
 
-// Coroutine to destroy the game object after the death animation
-IEnumerator DestroyAfterAnimation()
+public void DestroyObject()
 {
-    // Wait for the animation to finish (you may need to adjust the time accordingly)
-    yield return new WaitForSeconds(1.0f); // Adjust the duration as needed
-
-    // Destroy the game object
+    //Destroy the game object immediately for animator
     Destroy(gameObject);
 }
 }

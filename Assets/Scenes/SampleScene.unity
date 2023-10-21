@@ -4370,7 +4370,7 @@ PrefabInstance:
     - target: {fileID: 1604818110926603565, guid: a23eebfac23921f44b8bc24a977b0777, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 117477151934518733, guid: 8bae899cde1e2bb488f818e75e34ccec, type: 3}
+      objectReference: {fileID: 385361799063575719, guid: a8c2b914a7cf5ed468dcf0da3ad7f381, type: 3}
     - target: {fileID: 1875037530719370508, guid: a23eebfac23921f44b8bc24a977b0777, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.316
