@@ -10,14 +10,16 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 10f; //Controls for adjusting the acceleration for smoother movement inside the game
     public Animator animator;
 
+    private float nextDamageTime = 0f;  // The time when the player can take damage again.
+    public float damageCooldown = 1.0f; // The cooldown time between taking damage (adjust as needed).
+
     [Header("Health System")]
-    public int maxHealth = 100;
+    public int maxHealth = 1000;
     public int currentHealth;
 
     [Header("Damage System")]
     public int attackDamage = 10;
     public float attackSpeed = 1.0f;
-    private float nextAttackTime = 0f;
 
     private Rigidbody2D body;
     private Vector2 targetVelocity; 
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
         targetVelocity = Vector2.zero;
         
     }
-
+    
     void FixedUpdate()
     {
         //Getting inputs for horizontal and vertical movement
@@ -72,15 +74,21 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0)
+        if (currentHealth > 0) //Here we compare the time elapsed and check if it is bigger than nextDamageTime which is calculated by adding 1s cooldown to time, essentailly making 1s wait between attacks
         {
             currentHealth -= damage;
+            //nextDamageTime = Time.time + damageCooldown; //adding 1s to total time as nextDamageTime
             //Check if the player is dead
             if (currentHealth <= 0)
             {
                 Die();
             }
         }
+    }
+
+    public float GetNextDamageTime() //reference to enemycontroller
+    {
+        return nextDamageTime;
     }
 
     //From Naosee's class
@@ -94,16 +102,15 @@ public class PlayerController : MonoBehaviour
 
     void Die()
 {
-    if (animator != null)
-    {
+   
         //Trigger the "Die" animation
         animator.SetTrigger("Die");
-    }
+        
 }
 
 public void DestroyObject()
 {
-    //Destroy the game object immediately for animator
+    //Destroy the game object after calling for animator event
     Destroy(gameObject);
 }
 }
