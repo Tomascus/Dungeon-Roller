@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     [Header("Health System")]
     public int maxHealth = 100;
     public int currentHealth;
+    [SerializeField] StatusBar hpBar;
 
     [Header("Damage System")]
     public int attackDamage = 1;
@@ -54,14 +55,15 @@ public class EnemyController : MonoBehaviour
     {
         if (currentHealth > 0)
         {   
-            animator.SetBool("IsHit", true);
+            //animator.SetBool("IsHit", true);
             currentHealth -= damage;
-            animator.SetBool("IsHit", false);
+            //animator.SetBool("IsHit", false);
             //Check if the enemy is dead
             if (currentHealth <= 0)
             {
                 Die();
             }
+            hpBar.SetState(currentHealth, maxHealth);
         }
     }
 

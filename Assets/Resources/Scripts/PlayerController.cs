@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [Header("Health System")]
     public int maxHealth = 1000;
     public int currentHealth;
+    [SerializeField] StatusBar hpBar;
 
     [Header("Damage System")]
     public int attackDamage = 10;
@@ -83,12 +84,24 @@ public class PlayerController : MonoBehaviour
             {
                 Die();
             }
+            hpBar.SetState(currentHealth, maxHealth);
         }
     }
 
     public float GetNextDamageTime() //reference to enemycontroller
     {
         return nextDamageTime;
+    }
+
+    public void Heal(int heal)
+    {
+
+        if (currentHealth <= 0) { return; }
+        currentHealth += heal;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 
     //From Naosee's class
