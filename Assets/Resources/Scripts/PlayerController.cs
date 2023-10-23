@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
         currentScale.x *= -1;
         gameObject.transform.localScale = currentScale;
         facingRight = !facingRight;
+        
     }
 
     void Die()

@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     public PlayerController playerController;
     GameObject targetGameobject;
     
+    
 
     [Header("Health System")]
     public int maxHealth = 100;
@@ -55,9 +56,8 @@ public class EnemyController : MonoBehaviour
     {
         if (currentHealth > 0)
         {   
-            //animator.SetBool("IsHit", true);
             currentHealth -= damage;
-            //animator.SetBool("IsHit", false);
+            animator.SetTrigger("IsHit");
             //Check if the enemy is dead
             if (currentHealth <= 0)
             {
@@ -78,6 +78,7 @@ public class EnemyController : MonoBehaviour
    private void Attack()
    {
     playerController.TakeDamage(attackDamage);
+    animator.SetTrigger("IsAttacking");
    }
 
 
