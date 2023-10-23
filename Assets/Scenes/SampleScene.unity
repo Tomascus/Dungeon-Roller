@@ -3708,11 +3708,11 @@ MonoBehaviour:
   player: {fileID: 4962850628457935650}
   moveSpeed: 2
   playerController: {fileID: 4962850628457935652}
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
   hpBar: {fileID: 1484383441}
-  attackDamage: 1
-  attackSpeed: 1
+  attackDamage: 2
+  attackSpeed: 0.5
 --- !u!4 &1118585983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2539358699606468795, guid: 5380add1d9a2ee04782d0b2fcdcbde0f, type: 3}
@@ -3954,7 +3954,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   hpBar: {fileID: 325086915}
-  attackDamage: 1
+  attackDamage: 5
   attackSpeed: 1
 --- !u!4 &1712703651 stripped
 Transform:
@@ -4082,7 +4082,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   hpBar: {fileID: 1806614151}
-  attackDamage: 1
+  attackDamage: 4
   attackSpeed: 1
 --- !u!4 &1848852298 stripped
 Transform:
@@ -4199,8 +4199,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   hpBar: {fileID: 1592857853}
-  attackDamage: 1
-  attackSpeed: 1
+  attackDamage: 3
+  attackSpeed: 0.5
 --- !u!4 &2075525991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 16144380003991494, guid: bbd6b56294c82c946ac0397e9c2577f3, type: 3}
@@ -4870,7 +4870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8863105614637832841, guid: a23eebfac23921f44b8bc24a977b0777, type: 3}
       propertyPath: maxHealth
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1604818110926603565, guid: a23eebfac23921f44b8bc24a977b0777, type: 3}

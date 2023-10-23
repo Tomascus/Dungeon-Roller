@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed = 5f;
     public PlayerController playerController;
     GameObject targetGameobject;
+    SpriteRenderer character; //for flipping the sprite
+   
     
     
 
@@ -23,11 +25,12 @@ public class EnemyController : MonoBehaviour
 
     [Header("Damage System")]
     public int attackDamage = 1;
-    public float attackSpeed = 1.0f;
+    public float attackSpeed = 0.5f;
+    bool OnCooldown = false; //Cooldown for attacks
 
     private Rigidbody2D body;
     private Vector2 movement;
-    private bool facingRight = true; //for fliping the character 
+    
 
     //Set current health of enemy to max health at the start and get Rigidbody Component for the enemies
     void Awake()
@@ -35,6 +38,7 @@ public class EnemyController : MonoBehaviour
         body = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         targetGameobject = player.gameObject;
+        character = this.GetComponent<SpriteRenderer>(); //getting sprite component
     }
 
     //Update is called once per frame
@@ -43,10 +47,7 @@ public class EnemyController : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         body.velocity = direction * moveSpeed;
 
-        if ((direction.x > 0 && !facingRight) || (direction.x < 0 && facingRight))
-        {
-            Flip();
-        }
+        Flip(direction);
         
         //Calculate the x direction speed and start animation if the entity moves
         animator.SetFloat("Speed", Mathf.Abs(direction.x));
@@ -66,32 +67,46 @@ public class EnemyController : MonoBehaviour
             hpBar.SetState(currentHealth, maxHealth);
         }
     }
-
    private void OnCollisionStay2D(Collision2D collision) 
    {
     if (collision.gameObject == targetGameobject)
     {
         Attack();
+    }   
     }
-   }
+   
 
    private void Attack()
    {
+    if(!OnCooldown) //If there is no cooldown for attack, attack the entity
+    {
     playerController.TakeDamage(attackDamage);
     animator.SetTrigger("IsAttacking");
+    StartCoroutine(Cooldown()); //Starting cooldown for attack
+    }
+   }
+
+   private IEnumerator Cooldown() //Cooldown coroutine for entities
+   {
+    OnCooldown = true; //Starts a cooldown
+    yield return new WaitForSeconds(attackSpeed); //Set the cooldown time 
+    OnCooldown = false; //Reset the cooldown
    }
 
 
-    //From Naosse's class
-    void Flip()
+    
+    void Flip(Vector3 direction) //Flip method with direction value
     {
+
+        character.flipX = direction.x < 0; //uses character sprite flip when the entity is moving to the left (if x is < 0)
+        
         //Flip the characters sprite
-        Vector3 currentScale = transform.localScale;
+        /*Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
         transform.localScale = currentScale;
 
         //Update the facing direction
-        facingRight = !facingRight;
+        facingRight = !facingRight;*/
     }
 
     void Die()

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f; //Controls for adjusting the move speed inside the game
     public float acceleration = 10f; //Controls for adjusting the acceleration for smoother movement inside the game
     public Animator animator;
+    SpriteRenderer character; //for flipping the sprite
 
     private float nextDamageTime = 0f;  // The time when the player can take damage again.
     public float damageCooldown = 1.0f; // The cooldown time between taking damage (adjust as needed).
@@ -24,14 +25,14 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D body;
     private Vector2 targetVelocity; 
-    private bool facingRight = true; //for fliping the character 
     
     //Set current health of player to max health at the start and get Rigidbody Component for the enemies
-    void Start() //Calls it when the scene is first initialized 
+    void Awake() //Calls it when the scene is first initialized 
     {
         body = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         targetVelocity = Vector2.zero;
+        character = this.GetComponent<SpriteRenderer>(); //getting sprite component
         
     }
     
@@ -41,10 +42,9 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-         if ((horizontalInput>0 && !facingRight)||(horizontalInput<0 && facingRight))
-        {
-            Flip();
-        }
+        
+        Flip(horizontalInput);
+        
 
 
         //Creating input velocity calculation for basic movement and then inputing it for final targetVelocity which adds acceleration calculation
@@ -75,10 +75,10 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0) //Here we compare the time elapsed and check if it is bigger than nextDamageTime which is calculated by adding 1s cooldown to time, essentailly making 1s wait between attacks
+        if (currentHealth > 0) 
         {
             currentHealth -= damage;
-            //nextDamageTime = Time.time + damageCooldown; //adding 1s to total time as nextDamageTime
+            animator.SetTrigger("IsHit");
             //Check if the player is dead
             if (currentHealth <= 0)
             {
@@ -104,14 +104,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //From Naosee's class
-    private void Flip()
+     void Flip(float horizontalInput) //Flip method with direction value
     {
-        Vector3 currentScale = gameObject.transform.localScale;
-        currentScale.x *= -1;
-        gameObject.transform.localScale = currentScale;
-        facingRight = !facingRight;
+
+        character.flipX = horizontalInput < 0; //uses character sprite flip when the entity is moving to the left (if horizontal input is < 0)
         
+        //From Naosse's Class
+        //Flip the characters sprite
+        /*Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+
+        //Update the facing direction
+        facingRight = !facingRight;*/
     }
 
     void Die()
