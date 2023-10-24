@@ -29,7 +29,6 @@ public class EnemyController : MonoBehaviour
     bool OnCooldown = false; //Cooldown for attacks
 
     private Rigidbody2D body;
-    private Vector2 movement;
     
 
     //Set current health of enemy to max health at the start and get Rigidbody Component for the enemies
