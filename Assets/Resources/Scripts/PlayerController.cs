@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 10f; //Controls for adjusting the acceleration for smoother movement inside the game
     public Animator animator;
     SpriteRenderer character; //for flipping the sprite
+    private bool isAlive = true;
 
     private float nextDamageTime = 0f;  // The time when the player can take damage again.
     public float damageCooldown = 1.0f; // The cooldown time between taking damage (adjust as needed).
 
     [Header("Health System")]
-    public int maxHealth = 1000;
+    public int maxHealth = 100;
     public int currentHealth;
     [SerializeField] StatusBar hpBar;
 
@@ -121,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
     void Die()
 {
-   
+        isAlive = false;
         //Trigger the "Die" animation
         animator.SetTrigger("Die");
         
@@ -132,4 +133,10 @@ public void DestroyObject()
     //Destroy the game object after calling for animator event
     Destroy(gameObject);
 }
+
+//returns alive status to enemy script
+public bool IsPlayerAlive()
+    {
+        return isAlive;
+    }
 }

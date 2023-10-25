@@ -35,21 +35,30 @@ public class EnemyController : MonoBehaviour
     void Awake()
     {
         body = this.GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
-        targetGameobject = player.gameObject;
+        currentHealth = maxHealth; 
+        targetGameobject = player.gameObject; //object for enemy to chase
         character = this.GetComponent<SpriteRenderer>(); //getting sprite component
     }
 
     //Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
-        body.velocity = direction * moveSpeed;
+        //Following player when he is alive
+        if (playerController.IsPlayerAlive())
+        {
+            //gets the direction using players position and subtracting enemy  position and normalizes it for constant speed using unit vectors
+            Vector3 direction = (player.position - transform.position).normalized;
+            body.velocity = direction * moveSpeed; //sets the movement speed for following
 
-        Flip(direction);
+            Flip(direction);
         
-        //Calculate the x direction speed and start animation if the entity moves
-        animator.SetFloat("Speed", Mathf.Abs(direction.x));
+            //Calculate the x direction speed and start animation if the entity moves
+            animator.SetFloat("Speed", Mathf.Abs(direction.x));
+        } else 
+        {
+            body.velocity = Vector2.zero; //stops following when player dies by stopping velocity
+            animator.SetFloat("Speed", 0); //Stops the animation - returns to idle
+        }
     }
 
     public void TakeDamage(int damage)
