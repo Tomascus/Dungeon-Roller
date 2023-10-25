@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public PlayerController playerController; //Reference the player controller
     public GameObject targetGameobject; //Target for enemy to chase
     SpriteRenderer character; //for flipping the sprite
+    public EnemySpawner enemySpawner;
    
     
     
@@ -36,6 +37,7 @@ public class EnemyController : MonoBehaviour
         body = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth; 
         character = this.GetComponent<SpriteRenderer>(); //getting sprite component
+        enemySpawner = Object.FindFirstObjectByType<EnemySpawner>(); //getting enemySpawner
     }
 
     //Update is called once per frame
@@ -66,8 +68,9 @@ public class EnemyController : MonoBehaviour
             currentHealth -= damage;
             animator.SetTrigger("IsHit");
             //Check if the enemy is dead
-            if (currentHealth <= 0)
+            if (currentHealth <= 0 )
             {
+                enemySpawner.EnemyDefeated(); //If the nemy is defeated, we remove 1 from total enemies in EnemySpawner
                 Die();
             }
             hpBar.SetState(currentHealth, maxHealth);

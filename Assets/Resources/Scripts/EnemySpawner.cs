@@ -15,23 +15,54 @@ public class EnemySpawner : MonoBehaviour
     public float shroomInterval = 15f;
     [SerializeField] private Transform player; //Getting player ingame
     public PlayerController playerController; //Referencing playercontroller
-
     public Vector3 spawnRange = new Vector3(-5f, 5f, 0); //For setting different spawn ranges
+    private bool Spawning = true;
+    public int enemyCount = 0; //Track the number of enemies
+    public static EnemySpawner Instance;
 
-
+     private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
         playerController = player.GetComponent<PlayerController>();
-        StartCoroutine(spawnEnemy(goblinInterval, goblinPrefab));
-        StartCoroutine(spawnEnemy(skeletonInterval, skeletonPrefab));
-        StartCoroutine(spawnEnemy(eyeInterval, eyePrefab));
-        StartCoroutine(spawnEnemy(shroomInterval, shroomPrefab));
+    }
+    [HideInInspector] public IEnumerator SpawnEnemies()
+    {
+        while (Spawning)
+        {
+            StartCoroutine(spawnEnemy(goblinInterval, goblinPrefab));
+            StartCoroutine(spawnEnemy(skeletonInterval, skeletonPrefab));
+            StartCoroutine(spawnEnemy(eyeInterval, eyePrefab));
+            StartCoroutine(spawnEnemy(shroomInterval, shroomPrefab));
+            yield return new WaitForSeconds(30f); //30 second timer for spawning
+            Spawning = false; //Stops spawning enemies
+        }
+    }
 
+    public void EnemySpawned()
+    {
+        enemyCount++; //Adds 1 to the number of enemies
+    }
+
+    public void EnemyDefeated()
+    {
+        enemyCount--; //Removes 1 from the number of enemies
+    }
+
+    public bool NoEnemiesLeft()
+    {
+        return enemyCount == 0; //Check if all enemies are defeated
     }
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy) 
     {
+        while (Spawning) { //Checks if the enemies are still spawning
         yield return new WaitForSeconds(interval); //waits for interval of enemy spawn
         GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(spawnRange.x, spawnRange.y), Random.Range(spawnRange.x, spawnRange.y), 0), Quaternion.identity); //Creates enemies in a specified range x,y,z
         EnemyController enemyController = newEnemy.GetComponent<EnemyController>();
@@ -39,7 +70,9 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyController.targetGameobject = player.gameObject;  //Assign the player as the target to follow
             enemyController.playerController = playerController;   
+            EnemySpawned();
         }
-        StartCoroutine(spawnEnemy(interval,enemy));
+        }
+       
     }
 }
