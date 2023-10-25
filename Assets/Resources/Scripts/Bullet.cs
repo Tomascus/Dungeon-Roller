@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
             enemyComponent.TakeDamage(10);
         }
         
-         Destroy(gameObject);
+        Destroy(gameObject);
     }
     
 }

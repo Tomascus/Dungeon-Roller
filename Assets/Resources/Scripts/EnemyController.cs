@@ -9,10 +9,9 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy Settings")]
     public Animator animator;
-    public Transform player; //Target for the enemy to chase
     public float moveSpeed = 5f;
-    public PlayerController playerController;
-    GameObject targetGameobject;
+    public PlayerController playerController; //Reference the player controller
+    public GameObject targetGameobject; //Target for enemy to chase
     SpriteRenderer character; //for flipping the sprite
    
     
@@ -36,7 +35,6 @@ public class EnemyController : MonoBehaviour
     {
         body = this.GetComponent<Rigidbody2D>();
         currentHealth = maxHealth; 
-        targetGameobject = player.gameObject; //object for enemy to chase
         character = this.GetComponent<SpriteRenderer>(); //getting sprite component
     }
 
@@ -44,10 +42,10 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         //Following player when he is alive
-        if (playerController.IsPlayerAlive())
+        if (targetGameobject != null && playerController.IsPlayerAlive())
         {
             //gets the direction using players position and subtracting enemy  position and normalizes it for constant speed using unit vectors
-            Vector3 direction = (player.position - transform.position).normalized;
+            Vector3 direction = (targetGameobject.transform.position - transform.position).normalized;
             body.velocity = direction * moveSpeed; //sets the movement speed for following
 
             Flip(direction);

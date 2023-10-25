@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7364117559494975065, guid: 0ac2beb0479cf2944b9ca74a48e3c140, type: 3}
+  m_Sprite: {fileID: -6554731555521698742, guid: 0ac2beb0479cf2944b9ca74a48e3c140, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17194,6 +17194,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 385361799063575719, guid: a8c2b914a7cf5ed468dcf0da3ad7f381, type: 3}
   firePoint: {fileID: 346348861}
   bulletSpeed: 5
+  attackSpeed: 0.5
 --- !u!1001 &353156627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19913,6 +19914,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1472290927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472290928}
+  - component: {fileID: 1472290929}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472290928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472290927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472290929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472290927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b28574ad63bb5448948bc330a07af9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1484383441 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4814277982581567803, guid: 5da821d35a54b0746a45da27349abed7, type: 3}
@@ -19998,7 +20043,7 @@ MonoBehaviour:
   player: {fileID: 4962850628457935650}
   moveSpeed: 2
   playerController: {fileID: 4962850628457935652}
-  maxHealth: 100
+  maxHealth: 120
   currentHealth: 0
   hpBar: {fileID: 325086915}
   attackDamage: 5
@@ -20234,10 +20279,10 @@ MonoBehaviour:
   player: {fileID: 4962850628457935650}
   moveSpeed: 2
   playerController: {fileID: 4962850628457935652}
-  maxHealth: 100
+  maxHealth: 80
   currentHealth: 0
   hpBar: {fileID: 1806614151}
-  attackDamage: 4
+  attackDamage: 8
   attackSpeed: 1
 --- !u!4 &1848852298 stripped
 Transform:
@@ -25242,7 +25287,7 @@ MonoBehaviour:
   player: {fileID: 4962850628457935650}
   moveSpeed: 2
   playerController: {fileID: 4962850628457935652}
-  maxHealth: 100
+  maxHealth: 70
   currentHealth: 0
   hpBar: {fileID: 1592857853}
   attackDamage: 3
@@ -25933,6 +25978,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 274482293818941227, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 274482293818941227, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 274482293818941227, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274482293818941227, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274482293818941227, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274482293818941227, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 274482293818941227, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 953438261014958573, guid: f464d7724acaca347aad4e226e6278b6, type: 3}
       propertyPath: m_RootOrder
       value: 9

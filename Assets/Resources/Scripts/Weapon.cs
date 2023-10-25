@@ -9,19 +9,27 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletSpeed = 10f;
-
+    public float attackSpeed = 1f;
+    bool OnCooldown = false; //Cooldown for attacks
     void Update()
     {
-        //Check for mouse input 
-            if (Input.GetButtonDown("Fire1"))
+            //Check for mouse input 
+            if (Input.GetButtonDown("Fire1") && !OnCooldown) //Has to wait for cooldown
             {
                 Fire();
+                StartCoroutine(Cooldown());
             }
-        }
+    }
+
+    private IEnumerator Cooldown() //Cooldown coroutine for the staff
+   {
+    OnCooldown = true; //Starts a cooldown
+    yield return new WaitForSeconds(attackSpeed); //Set the cooldown time 
+    OnCooldown = false; //Reset the cooldown
+   }
 
     void Fire()
 {  
-    
     Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get the cursor of the mouse in the world/game space
     Vector3 aimDirection = (mousePosition - firePoint.position); //Calculate the direction from the firePoint to the mouse cursor and normalizing it 
     aimDirection.Normalize(); //Making the bullet speed constant no matter the distance of the cursor in-game
