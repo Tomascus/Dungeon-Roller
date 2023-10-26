@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D body;
     private Vector2 targetVelocity; 
     
+
+    //Footstep sound from: https://pixabay.com/sound-effects/search/footsteps/
+    [Header("Audio Source")]
+    [SerializeField] private AudioSource walkSound;
+    private bool isWalking = false;
+    
     //Set current health of player to max health at the start and get Rigidbody Component for the enemies
     void Awake() //Calls it when the scene is first initialized 
     {
@@ -70,6 +76,26 @@ public class PlayerController : MonoBehaviour
         {
             //If the magnitude is 0 (Character is not moving), stop the animation
             animator.SetFloat("Speed", 0);
+        }
+
+        if (walkSound != null)
+        {
+            if (horizontalInput != 0)
+            {
+                if (!isWalking)
+                {
+                    walkSound.Play();
+                    isWalking = true; // Set the flag to true when walking starts
+                }
+            }
+            else
+            {
+                if (isWalking)
+                {
+                    walkSound.Pause();
+                    isWalking = false; // Set the flag to false when walking stops
+                }
+            }
         }
         
     }

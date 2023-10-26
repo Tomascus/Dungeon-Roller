@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
     Rigidbody2D body = bullet.GetComponent<Rigidbody2D>();
     Vector2 velocity = new Vector2(Mathf.Cos(aimAngle), Mathf.Sin(aimAngle)) * bulletSpeed; //Calculate the velocity using the aim angle and bullet speed
     body.velocity = velocity;
+    AudioManager.instance.PlayAttackSound();
 
     Destroy(bullet, 2f);
 }
