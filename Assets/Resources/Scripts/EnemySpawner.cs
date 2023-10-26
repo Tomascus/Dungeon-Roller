@@ -18,15 +18,7 @@ public class EnemySpawner : MonoBehaviour
     public Vector3 spawnRange = new Vector3(-5f, 5f, 0); //For setting different spawn ranges
     private bool Spawning = true;
     public int enemyCount = 0; //Track the number of enemies
-    public static EnemySpawner Instance;
-
-     private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
